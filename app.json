@@ -1,7 +1,7 @@
 {
-  "name": "AwesomeStorybook",
-  "slug": "AwesomeStorybook",
-  "scheme": "awesomestorybook",
+  "name": "React Native Material Design 3",
+  "slug": "react-native-material-design-3",
+  "scheme": "react-native-material-design-3",
   "version": "1.0.0",
   "orientation": "portrait",
   "icon": "./assets/icon.png",
