@@ -1,11 +1,10 @@
 import { ReactNode, createContext, useContext, useMemo } from 'react';
-
+import { Insets } from 'react-native';
 import merge from 'deepmerge';
 
 import { materialDesign3DefaultLightTheme } from '@/theme/default';
 import { MaterialDesign3Theme } from '@/types/theme';
 import { RecursivePartial } from '@/types/utils';
-import { Insets } from 'react-native';
 
 interface ThemeSettings {
   hitSlop?: number | Insets;
