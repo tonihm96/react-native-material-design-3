@@ -46,7 +46,7 @@ export const ThemeProvider = ({ children, theme, settings }: ThemeProviderProps)
     [mergedTheme, mergedSettings]
   );
 
-  return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
+  return <ThemeContext value={contextValue}>{children}</ThemeContext>;
 };
 
 export const useTheme = (
