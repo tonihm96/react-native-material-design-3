@@ -54,27 +54,22 @@ export const useTheme = (
 ): MaterialDesign3Theme => {
   const context = useContext(ThemeContext);
 
-  // test if this will cause a multiple render issue
-  if (context === null) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
+  const theme = context?.theme ?? materialDesign3DefaultLightTheme;
 
-  const { theme } = context;
-
-  return useMemo(() => {
+  const mergedTheme = useMemo(() => {
     if (overrides) {
       return merge(theme, overrides) as MaterialDesign3Theme;
     }
     return theme;
   }, [theme, overrides]);
+
+  return mergedTheme;
 };
 
 export const useThemeSettings = (): ThemeSettings => {
   const context = useContext(ThemeContext);
 
-  if (context === null) {
-    throw new Error('useThemeSettings must be used within a ThemeProvider');
-  }
+  const settings = context?.settings ?? DEFAULT_SETTINGS;
 
-  return context.settings;
+  return settings;
 };
