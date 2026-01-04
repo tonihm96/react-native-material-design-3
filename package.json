@@ -48,7 +48,6 @@
     "@expo/metro-runtime": "~6.1.2",
     "@storybook/addon-docs": "^10.0.0",
     "@storybook/addon-ondevice-actions": "^10.0.0",
-    "@storybook/addon-ondevice-backgrounds": "^10.0.0",
     "@storybook/addon-ondevice-controls": "^10.0.0",
     "@storybook/addon-ondevice-notes": "^10.0.0",
     "@storybook/react": "^10.0.0",
