@@ -14,15 +14,6 @@ const meta = {
       </View>
     ),
   ],
-} satisfies Meta<typeof Text>;
-
-export default meta;
-
-export const Default = {
-  args: {
-    variant: 'bodyMedium',
-    children: 'Default Text',
-  },
   argTypes: {
     variant: {
       control: { type: 'select' },
@@ -44,6 +35,14 @@ export const Default = {
         'labelSmall',
       ],
     },
+  },
+} satisfies Meta<typeof Text>;
+
+export default meta;
+
+export const Default = {
+  args: {
+    children: 'Default Text',
   },
 } satisfies Story;
 
