@@ -4,7 +4,7 @@ import { useColorScheme } from 'react-native';
 import { ThemeProvider } from '@/contexts/theme';
 import { materialDesign3DefaultDarkTheme, materialDesign3DefaultLightTheme } from '@/theme/default';
 
-export default function RootLayout() {
+const RootLayout = () => {
   const scheme = useColorScheme();
   const isDark = scheme === 'dark';
 
@@ -15,4 +15,6 @@ export default function RootLayout() {
       <Slot />
     </ThemeProvider>
   );
-}
+};
+
+export default RootLayout;
