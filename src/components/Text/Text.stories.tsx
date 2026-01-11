@@ -19,7 +19,6 @@ const meta = {
 export default meta;
 
 export const Default = {
-  name: 'Default Text',
   args: {
     variant: 'bodyMedium',
     children: 'Default Text',

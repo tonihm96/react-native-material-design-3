@@ -46,9 +46,7 @@ const meta = {
 
 export default meta;
 
-export const Default = {
-  name: 'Default PressableRipple',
-} satisfies Story;
+export const Default = {} satisfies Story;
 
 const styles = StyleSheet.create({
   container: {
