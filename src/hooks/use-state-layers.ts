@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { useTheme } from '@/contexts/theme';
 import { Colord } from 'colord';
 
-export function useStateLayers(color: string) {
+export const useStateLayers = (color: string) => {
   const theme = useTheme();
   const colorParser = useMemo(() => new Colord(color), [color]);
 
@@ -22,4 +22,4 @@ export function useStateLayers(color: string) {
       theme.stateLayers.press,
     ]
   );
-}
+};
