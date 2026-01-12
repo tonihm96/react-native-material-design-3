@@ -18,6 +18,7 @@ const meta = {
     variant: {
       control: { type: 'select' },
       options: [
+        undefined,
         'displayLarge',
         'displayMedium',
         'displaySmall',
