@@ -1,4 +1,4 @@
-import { Ref, useMemo } from 'react';
+import { Ref } from 'react';
 import { TextProps as NativeTextProps } from 'react-native';
 import Animated, { AnimatedProps } from 'react-native-reanimated';
 
@@ -14,13 +14,12 @@ export interface TextProps extends AnimatedProps<NativeTextProps> {
 const Text = ({ ref, variant = 'bodyMedium', color, children, style, ...props }: TextProps) => {
   const theme = useTheme();
 
-  const colorStyle = useMemo(
-    () => ({ color: color ?? theme.colors.onSurface }),
-    [color, theme.colors.onSurface]
-  );
-
   return (
-    <Animated.Text ref={ref} style={[theme.fonts[variant], colorStyle, style]} {...props}>
+    <Animated.Text
+      ref={ref}
+      style={[theme.fonts[variant], { color: color ?? theme.colors.onSurface }, style]}
+      {...props}
+    >
       {children}
     </Animated.Text>
   );
