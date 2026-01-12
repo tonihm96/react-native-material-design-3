@@ -1,5 +1,4 @@
-import { useMemo } from 'react';
-import { PressableAndroidRippleConfig, Pressable, PressableProps, View } from 'react-native';
+import { Pressable, PressableProps, View } from 'react-native';
 import Animated, { AnimatedProps, AnimatedRef } from 'react-native-reanimated';
 
 import { useTheme, useThemeSettings } from '@/contexts/theme';
@@ -33,20 +32,15 @@ const PressableRipple = ({
   const resolvedHitSlop = hitSlop ?? themeSettings.hitSlop;
   const resolvedRippleColor = rippleColor ?? stateLayers.press;
 
-  const androidRippleConfig = useMemo<PressableAndroidRippleConfig>(
-    () => ({
-      borderless: borderless,
-      color: resolvedRippleColor,
-      radius: rippleRadius,
-      foreground: foreground,
-    }),
-    [borderless, foreground, resolvedRippleColor, rippleRadius]
-  );
-
   return (
     <AnimatedPressable
       ref={ref}
-      android_ripple={androidRippleConfig}
+      android_ripple={{
+        borderless: borderless,
+        color: resolvedRippleColor,
+        radius: rippleRadius,
+        foreground: foreground,
+      }}
       hitSlop={resolvedHitSlop}
       {...props}
     >
