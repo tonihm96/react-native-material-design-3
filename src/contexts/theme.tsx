@@ -5,9 +5,13 @@ import merge from 'deepmerge';
 import { materialDesign3DefaultLightTheme } from '@/theme/default';
 import { MaterialDesign3Theme } from '@/types/theme';
 import { RecursivePartial } from '@/types/utils';
+import { IconProps } from '@/components/Icon';
+
+import MaterialCommunityIcon from '@expo/vector-icons/MaterialCommunityIcons';
 
 interface ThemeSettings {
   hitSlop?: number | Insets;
+  icon?: (props: IconProps) => ReactNode;
 }
 
 interface ThemeProviderProps {
@@ -23,6 +27,8 @@ interface ThemeContextProps {
 
 const DEFAULT_SETTINGS: ThemeSettings = {
   hitSlop: 8,
+  // @ts-expect-error - it is expected that the icon does not match the name prop type here
+  icon: ({ icon, ...props }: IconProps) => <MaterialCommunityIcon name={icon} {...props} />,
 };
 
 const ThemeContext = createContext<ThemeContextProps | null>(null);
