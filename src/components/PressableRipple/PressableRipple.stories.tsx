@@ -26,6 +26,10 @@ const meta = {
     onPressIn: fn(),
     onPressOut: fn(),
     onLongPress: fn(),
+    onHoverIn: fn(),
+    onHoverOut: fn(),
+    onFocus: fn(),
+    onBlur: fn(),
   },
   argTypes: {
     rippleColor: {
