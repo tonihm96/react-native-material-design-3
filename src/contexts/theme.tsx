@@ -1,11 +1,11 @@
-import { ReactNode, createContext, useContext, useMemo } from 'react';
+import { ReactNode, createContext, use, useMemo } from 'react';
 import { Insets } from 'react-native';
 import merge from 'deepmerge';
 
+import { IconProps } from '@/components/Icon';
 import { materialDesign3DefaultLightTheme } from '@/theme/default';
 import { MaterialDesign3Theme } from '@/types/theme';
 import { RecursivePartial } from '@/types/utils';
-import { IconProps } from '@/components/Icon';
 
 import MaterialCommunityIcon from '@expo/vector-icons/MaterialCommunityIcons';
 
@@ -57,7 +57,7 @@ export const ThemeProvider = ({ children, theme, settings }: ThemeProviderProps)
 export const useTheme = (
   overrides?: RecursivePartial<MaterialDesign3Theme>
 ): MaterialDesign3Theme => {
-  const context = useContext(ThemeContext);
+  const context = use(ThemeContext);
 
   const theme = context?.theme ?? materialDesign3DefaultLightTheme;
 
@@ -72,7 +72,7 @@ export const useTheme = (
 };
 
 export const useThemeSettings = (): ThemeSettings => {
-  const context = useContext(ThemeContext);
+  const context = use(ThemeContext);
 
   const settings = context?.settings ?? DEFAULT_SETTINGS;
 
