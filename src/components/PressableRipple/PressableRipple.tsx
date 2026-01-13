@@ -1,4 +1,4 @@
-import { Pressable, PressableProps, View } from 'react-native';
+import { GestureResponderEvent, Pressable, PressableProps, View } from 'react-native';
 import Animated, { AnimatedProps, AnimatedRef } from 'react-native-reanimated';
 
 import { useTheme, useThemeSettings } from '@/contexts/theme';
@@ -11,6 +11,9 @@ export interface PressableRippleProps
   rippleRadius?: number;
   borderless?: boolean;
   foreground?: boolean;
+  disabled?: boolean;
+  onPressIn?: (event: GestureResponderEvent) => void;
+  onPressOut?: (event: GestureResponderEvent) => void;
 }
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
