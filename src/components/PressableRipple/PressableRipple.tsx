@@ -2,7 +2,7 @@ import { GestureResponderEvent, Pressable, PressableProps, View } from 'react-na
 import Animated, { AnimatedProps, AnimatedRef } from 'react-native-reanimated';
 
 import { useTheme, useThemeSettings } from '@/contexts/theme';
-import { useStateLayers } from '@/hooks/use-state-layers';
+import useStateLayers from '@/hooks/useStateLayers';
 
 export interface PressableRippleProps
   extends AnimatedProps<Omit<PressableProps, 'android_ripple'>> {

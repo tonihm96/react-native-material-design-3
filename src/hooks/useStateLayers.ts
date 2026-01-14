@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { useTheme } from '@/contexts/theme';
 import { Colord } from 'colord';
 
-export const useStateLayers = (color: string) => {
+const useStateLayers = (color: string) => {
   const theme = useTheme();
   const colorParser = useMemo(() => new Colord(color), [color]);
 
@@ -23,3 +23,5 @@ export const useStateLayers = (color: string) => {
     ]
   );
 };
+
+export default useStateLayers;

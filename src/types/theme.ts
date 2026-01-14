@@ -2,12 +2,12 @@
 import { CustomColors, MaterialDesign3Colors } from './colors';
 import { CustomShapes, MaterialDesign3Shapes } from './shapes';
 import { CustomSpacing, MaterialDesign3Spacing } from './spacing';
-import { CustomTypeScale, MaterialDesign3TypeScale } from './type-scale';
+import { CustomTypeScale, MaterialDesign3TypeScale } from './typeScale';
 
 // static
 import { MaterialDesign3Elevation } from './elevation';
 import { MaterialDesign3Motion } from './motion';
-import { MaterialDesign3StateLayers } from './state-layers';
+import { MaterialDesign3StateLayers } from './stateLayers';
 
 export type MaterialDesign3ThemeColors = MaterialDesign3Colors & CustomColors;
 export type MaterialDesign3ThemeFonts = MaterialDesign3TypeScale & CustomTypeScale;

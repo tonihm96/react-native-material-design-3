@@ -7,7 +7,7 @@ import fonts from './fonts';
 import motion from './motion';
 import shapes from './shapes';
 import spacing from './spacing';
-import stateLayers from './state-layers';
+import stateLayers from './stateLayers';
 
 const themeWithoutColors: Omit<MaterialDesign3Theme, 'colors'> = {
   elevation,

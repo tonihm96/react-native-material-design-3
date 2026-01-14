@@ -1,4 +1,4 @@
-import { MaterialDesign3StateLayers } from '@/types/state-layers';
+import { MaterialDesign3StateLayers } from '@/types/stateLayers';
 
 const stateLayers: MaterialDesign3StateLayers = {
   hover: 0.08,

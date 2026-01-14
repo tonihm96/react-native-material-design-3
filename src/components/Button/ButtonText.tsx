@@ -2,7 +2,7 @@ import { use } from 'react';
 
 import { useTheme } from '@/contexts/theme';
 import { MaterialDesign3Colors } from '@/types/colors';
-import { MaterialDesign3TypeScale } from '@/types/type-scale';
+import { MaterialDesign3TypeScale } from '@/types/typeScale';
 
 import Text, { TextProps } from '../Text';
 import ButtonContext, { ButtonSize, ButtonVariant } from './ButtonContext';

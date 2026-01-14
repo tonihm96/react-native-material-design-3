@@ -1,4 +1,4 @@
-import { MaterialDesign3TypeScale } from '@/types/type-scale';
+import { MaterialDesign3TypeScale } from '@/types/typeScale';
 import { StyleSheet } from 'react-native';
 
 const fonts: MaterialDesign3TypeScale = StyleSheet.create<MaterialDesign3TypeScale>({

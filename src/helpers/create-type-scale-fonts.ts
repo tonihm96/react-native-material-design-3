@@ -1,4 +1,4 @@
-import { MaterialDesign3TypeScale } from '@/types/type-scale';
+import { MaterialDesign3TypeScale } from '@/types/typeScale';
 import defaultFonts from '@/theme/default/fonts';
 
 export const createMaterialDesign3TypeScaleFonts = <T extends MaterialDesign3TypeScale>(
