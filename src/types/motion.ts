@@ -9,14 +9,14 @@ export interface MaterialDesign3MotionSpringSpeeds {
   slow: MaterialDesign3MotionSpring;
 }
 
-export interface MaterialDesign3MotionSpringsSchemes {
-  standard: MaterialDesign3MotionSpringMovements;
-  expressive: MaterialDesign3MotionSpringMovements;
-}
-
 export interface MaterialDesign3MotionSpringMovements {
   spatial: MaterialDesign3MotionSpringSpeeds;
   effects: MaterialDesign3MotionSpringSpeeds;
+}
+
+export interface MaterialDesign3MotionSpringsSchemes {
+  standard: MaterialDesign3MotionSpringMovements;
+  expressive: MaterialDesign3MotionSpringMovements;
 }
 
 export interface MaterialDesign3MotionEasing {
