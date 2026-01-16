@@ -54,7 +54,7 @@ const ButtonText = ({ children, style, ...props }: ButtonTextProps) => {
   const fontSizeStyle = getFontSizeStyle(buttonSize, theme.fonts);
 
   return (
-    <Text color={textColor} style={[fontSizeStyle, style]} {...props}>
+    <Text color={textColor} style={[fontSizeStyle, style]} selectable={false} {...props}>
       {children}
     </Text>
   );
