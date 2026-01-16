@@ -38,6 +38,8 @@ const PressableRipple = ({
   return (
     <AnimatedPressable
       ref={ref}
+      // Ripple is not working at the moment when foreground is set to false:
+      // https://github.com/facebook/react-native/issues/52939
       android_ripple={{
         borderless: borderless,
         color: resolvedRippleColor,
