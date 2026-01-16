@@ -30,60 +30,64 @@ const motion: MaterialDesign3Motion = {
   },
   springs: {
     standard: {
-      spatial: {
-        fast: {
+      fast: {
+        spatial: {
           damping: 0.9,
           stiffness: 1400,
         },
-        default: {
-          damping: 0.9,
-          stiffness: 700,
-        },
-        slow: {
-          damping: 0.9,
-          stiffness: 300,
-        },
-      },
-      effects: {
-        fast: {
+        effects: {
           damping: 1,
           stiffness: 3800,
         },
-        default: {
+      },
+      default: {
+        spatial: {
+          damping: 0.9,
+          stiffness: 700,
+        },
+        effects: {
           damping: 1,
           stiffness: 1600,
         },
-        slow: {
+      },
+      slow: {
+        spatial: {
+          damping: 0.9,
+          stiffness: 300,
+        },
+        effects: {
           damping: 1,
           stiffness: 800,
         },
       },
     },
     expressive: {
-      spatial: {
-        fast: {
+      fast: {
+        spatial: {
           damping: 0.6,
           stiffness: 800,
         },
-        default: {
-          damping: 0.8,
-          stiffness: 380,
-        },
-        slow: {
-          damping: 0.8,
-          stiffness: 200,
-        },
-      },
-      effects: {
-        fast: {
+        effects: {
           damping: 1,
           stiffness: 3800,
         },
-        default: {
+      },
+      default: {
+        spatial: {
+          damping: 0.8,
+          stiffness: 380,
+        },
+        effects: {
           damping: 1,
           stiffness: 1600,
         },
-        slow: {
+      },
+      slow: {
+        spatial: {
+          damping: 0.8,
+          stiffness: 200,
+        },
+        effects: {
           damping: 1,
           stiffness: 800,
         },

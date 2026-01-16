@@ -3,20 +3,20 @@ export interface MaterialDesign3MotionSpring {
   stiffness: number;
 }
 
-export interface MaterialDesign3MotionSpringSpeeds {
-  fast: MaterialDesign3MotionSpring;
-  default: MaterialDesign3MotionSpring;
-  slow: MaterialDesign3MotionSpring;
+export interface MaterialDesign3MotionSpringMovements {
+  spatial: MaterialDesign3MotionSpring;
+  effects: MaterialDesign3MotionSpring;
 }
 
-export interface MaterialDesign3MotionSpringMovements {
-  spatial: MaterialDesign3MotionSpringSpeeds;
-  effects: MaterialDesign3MotionSpringSpeeds;
+export interface MaterialDesign3MotionSpringSpeeds {
+  fast: MaterialDesign3MotionSpringMovements;
+  default: MaterialDesign3MotionSpringMovements;
+  slow: MaterialDesign3MotionSpringMovements;
 }
 
 export interface MaterialDesign3MotionSpringsSchemes {
-  standard: MaterialDesign3MotionSpringMovements;
-  expressive: MaterialDesign3MotionSpringMovements;
+  standard: MaterialDesign3MotionSpringSpeeds;
+  expressive: MaterialDesign3MotionSpringSpeeds;
 }
 
 export interface MaterialDesign3MotionEasing {
