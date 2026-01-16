@@ -3,7 +3,8 @@ import { StyleSheet, View } from 'react-native';
 
 import * as PressableRippleStories from '../PressableRipple/PressableRipple.stories';
 
-import Button from './Button';
+import Button, { ButtonProps } from './Button';
+import { useState } from 'react';
 
 type Story = StoryObj<typeof meta>;
 
@@ -240,6 +241,26 @@ export const XLargeText = {
   ),
 } satisfies Story;
 //#endregion
+
+const SelectableButton = (args: ButtonProps) => {
+  const [selected, setSelected] = useState(false);
+
+  return (
+    <Button
+      {...args}
+      selected={selected}
+      onPress={() => setSelected((prev) => !prev)}
+      variant='filled'
+      size='medium'
+    >
+      <Button.Text>Button</Button.Text>
+    </Button>
+  );
+};
+
+export const Selectable = {
+  render: (args) => <SelectableButton {...args} />,
+} satisfies Story;
 
 export const WithIcon = {
   render: (args) => (
