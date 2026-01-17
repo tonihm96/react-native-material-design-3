@@ -270,13 +270,29 @@ export const Selectable = {
   render: (args) => <SelectableButton {...args} />,
 } satisfies Story;
 
-export const WithIcon = {
-  render: (args) => (
-    <Button {...args}>
+const ButtonWithIcon = (args: ButtonProps) => {
+  return (
+    <Button variant='filled' size='medium' {...args}>
       <Button.Icon icon='plus' />
       <Button.Text>With icon</Button.Text>
     </Button>
-  ),
+  );
+};
+
+export const WithIcon = {
+  render: (args) => <ButtonWithIcon {...args} />,
+} satisfies Story;
+
+const ButtonIconOnly = (args: ButtonProps) => {
+  return (
+    <Button variant='filled' size='medium' {...args}>
+      <Button.Icon icon='plus' />
+    </Button>
+  );
+};
+
+export const IconOnly = {
+  render: (args) => <ButtonIconOnly {...args} />,
 } satisfies Story;
 
 const styles = StyleSheet.create({
