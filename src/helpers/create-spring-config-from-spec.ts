@@ -8,6 +8,8 @@ const createSpringConfigFromSpec = ({
 }: MaterialDesign3MotionSpring): WithSpringConfig => {
   const mass = 1;
 
+  // This formula comes from the link below:
+  // https://en.wikipedia.org/wiki/Harmonic_oscillator#Damping_ratio_and_natural_frequency
   const physicalDampingCoefficient = 2 * dampingRatio * Math.sqrt(stiffness * mass);
 
   return {
