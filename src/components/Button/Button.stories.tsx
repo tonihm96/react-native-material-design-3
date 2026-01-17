@@ -255,11 +255,11 @@ const SelectableButton = (args: ButtonProps) => {
 
   return (
     <Button
+      variant='filled'
+      size='medium'
       {...args}
       selected={selected}
       onPress={() => setSelected((prev) => !prev)}
-      variant='filled'
-      size='medium'
     >
       <Button.Text>Button</Button.Text>
     </Button>
