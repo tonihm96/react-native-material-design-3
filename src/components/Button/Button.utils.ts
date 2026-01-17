@@ -50,6 +50,8 @@ export const getVariantBackgroundColor = (
     }
     case 'text':
       return undefined;
+    default:
+      throw new Error(`Unsupported button variant: ${variant}`);
   }
 };
 
@@ -99,7 +101,7 @@ export const getVariantTextColor = (
     case 'text':
       return disabled ? new Color(colors.onSurface).alpha(0.38) : colors.primary;
     default:
-      return disabled ? new Color(colors.onSurface).alpha(0.38) : colors.onSurface;
+      throw new Error(`Unsupported button variant: ${variant}`);
   }
 };
 
@@ -137,6 +139,8 @@ export const getSizeBorderWidth = (size: ButtonSize) => {
       return 2;
     case 'xlarge':
       return 3;
+    default:
+      throw new Error(`Unsupported button size: ${size}`);
   }
 };
 
@@ -161,6 +165,8 @@ export const getShapeSizeBorderRadius = (
       return shapes.extraLarge;
     case 'xlarge':
       return shapes.extraLarge;
+    default:
+      throw new Error(`Unsupported button size: ${size}`);
   }
 };
 
@@ -179,6 +185,8 @@ export const getSelectedShapeSizeBorderRadius = (
       return shapes.extraLarge;
     case 'xlarge':
       return shapes.extraLarge;
+    default:
+      throw new Error(`Unsupported button size: ${size}`);
   }
 };
 
@@ -197,6 +205,8 @@ export const getPressedShapeSizeBorderRadius = (
       return shapes.large;
     case 'xlarge':
       return shapes.large;
+    default:
+      throw new Error(`Unsupported button size: ${size}`);
   }
 };
 
@@ -213,7 +223,7 @@ export const getFontSizeStyle = (size: ButtonSize, fonts: MaterialDesign3TypeSca
     case 'xlarge':
       return fonts.headlineLarge;
     default:
-      return fonts.labelLarge;
+      throw new Error(`Unsupported button size: ${size}`);
   }
 };
 
@@ -230,6 +240,6 @@ export const getButtonIconSize = (size: ButtonSize) => {
     case 'xlarge':
       return 40;
     default:
-      return 16;
+      throw new Error(`Unsupported button size: ${size}`);
   }
 };
