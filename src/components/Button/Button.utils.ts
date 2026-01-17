@@ -220,15 +220,15 @@ export const getFontSizeStyle = (size: ButtonSize, fonts: MaterialDesign3TypeSca
 export const getButtonIconSize = (size: ButtonSize) => {
   switch (size) {
     case 'xsmall':
-      return 16;
+      return 20;
     case 'small':
-      return 16;
+      return 20;
     case 'medium':
-      return 16;
+      return 24;
     case 'large':
-      return 16;
+      return 32;
     case 'xlarge':
-      return 16;
+      return 40;
     default:
       return 16;
   }
