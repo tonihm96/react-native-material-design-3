@@ -21,6 +21,14 @@ const meta = {
     ...PressableRippleStories.default.args,
   },
   argTypes: {
+    variant: {
+      control: 'select',
+      options: ['elevated', 'filled', 'tonal', 'outlined', 'text'],
+    },
+    size: {
+      control: 'select',
+      options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
+    },
     selected: { control: 'boolean' },
     shape: {
       control: 'select',
