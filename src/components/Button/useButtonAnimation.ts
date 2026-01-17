@@ -31,70 +31,74 @@ const useButtonAnimation = ({
 }: UseButtonAnimationProps) => {
   const theme = useTheme();
 
+  // Prevent copying the entire theme object into the worklet
+  const springConfig = theme.motion.springs.standard.fast.spatial;
+
   // We use a shared value to track the pressed state to ensure
   // it is faster than any round-trip through the React state system
-  const isPressed = useSharedValue(false);
+  const pressed = useSharedValue(false);
   const animatedBorderRadius = useSharedValue(defaultBorderRadius);
 
   const handlePressIn = useCallback(
     (e: GestureResponderEvent) => {
-      if (!disabled) isPressed.value = true;
+      if (!disabled) {
+        pressed.value = true;
+      }
       onPressIn?.(e);
     },
-    [onPressIn, disabled, isPressed]
+    [onPressIn, disabled, pressed]
   );
 
   const handlePressOut = useCallback(
     (e: GestureResponderEvent) => {
-      if (!disabled) isPressed.value = false;
+      if (!disabled) {
+        pressed.value = false;
+      }
       onPressOut?.(e);
     },
-    [onPressOut, disabled, isPressed]
+    [onPressOut, disabled, pressed]
   );
 
   useAnimatedReaction(
     () => ({
-      pressed: isPressed.value,
-      isSelected: selected,
-      defaultRadius: defaultBorderRadius,
-      selectedRadius: selectedBorderRadius,
-      pressedRadius: pressedBorderRadius,
-      springConfig: theme.motion.springs.standard.fast.spatial,
+      pressed: pressed.value,
+      selected,
+      defaultBorderRadius,
+      pressedBorderRadius,
+      selectedBorderRadius,
     }),
     (current, previous) => {
-      if (previous === null) {
-        return;
-      }
-
       if (
-        current.pressed === previous.pressed &&
-        current.isSelected === previous.isSelected &&
-        current.defaultRadius === previous.defaultRadius
+        current.pressed === previous?.pressed &&
+        current.selected === previous?.selected &&
+        current.defaultBorderRadius === previous?.defaultBorderRadius &&
+        current.pressedBorderRadius === previous?.pressedBorderRadius &&
+        current.selectedBorderRadius === previous?.selectedBorderRadius
       ) {
         return;
       }
 
       // Pressed > Selected > Default
-      let targetRadius = current.defaultRadius;
+      let targetRadius = current.defaultBorderRadius;
       if (current.pressed) {
-        targetRadius = current.pressedRadius;
-      } else if (current.isSelected) {
-        targetRadius = current.selectedRadius;
+        targetRadius = current.pressedBorderRadius;
+      } else if (current.selected) {
+        targetRadius = current.selectedBorderRadius;
       }
 
+      cancelAnimation(animatedBorderRadius);
       if (animatedBorderRadius.value !== targetRadius) {
-        cancelAnimation(animatedBorderRadius);
-        animatedBorderRadius.value = withSpring(targetRadius, current.springConfig);
+        animatedBorderRadius.value = withSpring(targetRadius, springConfig);
       }
     },
     [
-      isPressed,
+      pressed,
       animatedBorderRadius,
       selected,
       defaultBorderRadius,
       selectedBorderRadius,
       pressedBorderRadius,
-      theme.motion.springs.standard.fast.spatial,
+      springConfig,
     ]
   );
 
