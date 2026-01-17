@@ -1,7 +1,7 @@
+import { Colord } from 'colord';
 import { useMemo } from 'react';
 
 import { useTheme } from '@/contexts/theme';
-import { Colord } from 'colord';
 
 const useStateLayers = (color: string) => {
   const theme = useTheme();
