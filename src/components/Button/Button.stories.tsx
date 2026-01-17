@@ -1,10 +1,10 @@
 import { type Meta, type StoryObj } from '@storybook/react-native';
+import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import * as PressableRippleStories from '../PressableRipple/PressableRipple.stories';
 
 import Button, { ButtonProps } from './Button';
-import { useState } from 'react';
 
 type Story = StoryObj<typeof meta>;
 
