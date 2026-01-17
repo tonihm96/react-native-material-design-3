@@ -9,6 +9,7 @@ import {
   getShapeSizeBorderRadius,
   getSizeBorderWidth,
   getVariantBackgroundColor,
+  getVariantBorderColor,
 } from './Button.utils';
 import ButtonContext, {
   type ButtonShape,
@@ -78,7 +79,8 @@ const Button = ({
           { backgroundColor },
           variant === 'outlined' && {
             borderWidth,
-            borderColor: theme.colors.outlineVariant,
+            // Only call getVariantBorderColor when the variant is outlined
+            borderColor: getVariantBorderColor(variant, theme.colors, disabled, selected),
           },
           variant === 'elevated' && {
             elevation: theme.elevation[1],

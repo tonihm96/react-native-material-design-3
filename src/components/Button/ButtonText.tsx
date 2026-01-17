@@ -15,8 +15,15 @@ const ButtonText = ({ children, style, ...props }: ButtonTextProps) => {
 
   const buttonVariant = buttonContext?.variant ?? 'text';
   const buttonSize = buttonContext?.size ?? 'small';
+  const buttonDisabled = buttonContext?.disabled ?? false;
+  const buttonSelected = buttonContext?.selected ?? false;
 
-  const textColor = getVariantTextColor(buttonVariant, theme.colors);
+  const textColor = getVariantTextColor(
+    buttonVariant,
+    theme.colors,
+    buttonDisabled,
+    buttonSelected
+  );
   const fontSizeStyle = getFontSizeStyle(buttonSize, theme.fonts);
 
   return (

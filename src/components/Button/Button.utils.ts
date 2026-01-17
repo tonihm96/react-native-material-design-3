@@ -2,7 +2,8 @@ import { MaterialDesign3Colors } from '@/types/colors';
 import { MaterialDesign3Shapes } from '@/types/shapes';
 import { MaterialDesign3TypeScale } from '@/types/typeScale';
 
-import { ButtonVariant, ButtonSize, ButtonShape } from './ButtonContext';
+import { ButtonShape, ButtonSize, ButtonVariant } from './ButtonContext';
+import Color from '@/utils/color';
 
 export const getVariantBackgroundColor = (
   variant: ButtonVariant,
@@ -11,14 +12,42 @@ export const getVariantBackgroundColor = (
   selected?: boolean
 ) => {
   switch (variant) {
-    case 'elevated':
+    case 'elevated': {
+      if (disabled) {
+        return new Color(colors.onSurface).alpha(0.1);
+      }
+      if (selected !== undefined) {
+        return selected ? colors.primary : colors.surfaceContainerLow;
+      }
       return colors.surfaceContainerLow;
-    case 'filled':
+    }
+    case 'filled': {
+      if (disabled) {
+        return new Color(colors.onSurface).alpha(0.1);
+      }
+      if (selected !== undefined) {
+        return selected ? colors.primary : colors.surfaceContainer;
+      }
       return colors.primary;
-    case 'tonal':
+    }
+    case 'tonal': {
+      if (disabled) {
+        return new Color(colors.onSurface).alpha(0.1);
+      }
+      if (selected !== undefined) {
+        return selected ? colors.secondary : colors.secondaryContainer;
+      }
       return colors.secondaryContainer;
-    case 'outlined':
+    }
+    case 'outlined': {
+      if (disabled) {
+        return new Color(colors.onSurface).alpha(0.1);
+      }
+      if (selected !== undefined) {
+        return selected ? colors.inverseSurface : undefined;
+      }
       return undefined;
+    }
     case 'text':
       return undefined;
   }
@@ -99,20 +128,75 @@ export const getPressedShapeSizeBorderRadius = (
   }
 };
 
-export const getVariantTextColor = (variant: ButtonVariant, colors: MaterialDesign3Colors) => {
+export const getVariantTextColor = (
+  variant: ButtonVariant,
+  colors: MaterialDesign3Colors,
+  disabled: boolean,
+  selected?: boolean
+) => {
   switch (variant) {
-    case 'elevated':
+    case 'elevated': {
+      if (disabled) {
+        return new Color(colors.onSurface).alpha(0.38);
+      }
+      if (selected !== undefined) {
+        return selected ? colors.onPrimary : colors.primary;
+      }
       return colors.primary;
-    case 'filled':
+    }
+    case 'filled': {
+      if (disabled) {
+        return new Color(colors.onSurface).alpha(0.38);
+      }
+      if (selected !== undefined) {
+        return selected ? colors.onPrimary : colors.onSurfaceVariant;
+      }
       return colors.onPrimary;
-    case 'tonal':
+    }
+    case 'tonal': {
+      if (disabled) {
+        return new Color(colors.onSurface).alpha(0.38);
+      }
+      if (selected !== undefined) {
+        return selected ? colors.onSecondary : colors.onSecondaryContainer;
+      }
       return colors.onSecondaryContainer;
-    case 'outlined':
+    }
+    case 'outlined': {
+      if (disabled) {
+        return new Color(colors.onSurface).alpha(0.38);
+      }
+      if (selected !== undefined) {
+        return selected ? colors.inverseOnSurface : colors.onSurfaceVariant;
+      }
       return colors.onSurfaceVariant;
+    }
     case 'text':
-      return colors.primary;
+      return disabled ? new Color(colors.onSurface).alpha(0.38) : colors.primary;
     default:
-      return colors.onSurface;
+      return disabled ? new Color(colors.onSurface).alpha(0.38) : colors.onSurface;
+  }
+};
+
+export const getVariantBorderColor = (
+  variant: ButtonVariant,
+  colors: MaterialDesign3Colors,
+  disabled: boolean,
+  selected?: boolean
+) => {
+  switch (variant) {
+    case 'outlined': {
+      if (disabled) {
+        return selected ? 'transparent' : colors.outlineVariant;
+      }
+      if (selected !== undefined) {
+        return selected ? colors.inverseSurface : colors.outlineVariant;
+      }
+      return colors.outlineVariant;
+    }
+    // No outline for other variants
+    default:
+      return undefined;
   }
 };
 
