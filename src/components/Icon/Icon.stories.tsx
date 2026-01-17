@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-native';
+import { StyleSheet, View } from 'react-native';
 
 import Icon from './Icon';
-import { StyleSheet, View } from 'react-native';
 
 type Story = StoryObj<typeof meta>;
 
