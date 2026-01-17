@@ -32,6 +32,9 @@ const meta = {
     onBlur: fn(),
   },
   argTypes: {
+    disabled: {
+      control: 'boolean',
+    },
     rippleColor: {
       control: 'color',
       type: 'string',
