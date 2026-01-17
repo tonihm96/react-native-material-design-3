@@ -53,6 +53,78 @@ export const getVariantBackgroundColor = (
   }
 };
 
+export const getVariantTextColor = (
+  variant: ButtonVariant,
+  colors: MaterialDesign3Colors,
+  disabled: boolean,
+  selected?: boolean
+) => {
+  switch (variant) {
+    case 'elevated': {
+      if (disabled) {
+        return new Color(colors.onSurface).alpha(0.38);
+      }
+      if (selected !== undefined) {
+        return selected ? colors.onPrimary : colors.primary;
+      }
+      return colors.primary;
+    }
+    case 'filled': {
+      if (disabled) {
+        return new Color(colors.onSurface).alpha(0.38);
+      }
+      if (selected !== undefined) {
+        return selected ? colors.onPrimary : colors.onSurfaceVariant;
+      }
+      return colors.onPrimary;
+    }
+    case 'tonal': {
+      if (disabled) {
+        return new Color(colors.onSurface).alpha(0.38);
+      }
+      if (selected !== undefined) {
+        return selected ? colors.onSecondary : colors.onSecondaryContainer;
+      }
+      return colors.onSecondaryContainer;
+    }
+    case 'outlined': {
+      if (disabled) {
+        return new Color(colors.onSurface).alpha(0.38);
+      }
+      if (selected !== undefined) {
+        return selected ? colors.inverseOnSurface : colors.onSurfaceVariant;
+      }
+      return colors.onSurfaceVariant;
+    }
+    case 'text':
+      return disabled ? new Color(colors.onSurface).alpha(0.38) : colors.primary;
+    default:
+      return disabled ? new Color(colors.onSurface).alpha(0.38) : colors.onSurface;
+  }
+};
+
+export const getVariantBorderColor = (
+  variant: ButtonVariant,
+  colors: MaterialDesign3Colors,
+  disabled: boolean,
+  selected?: boolean
+) => {
+  switch (variant) {
+    case 'outlined': {
+      if (disabled) {
+        return selected ? 'transparent' : colors.outlineVariant;
+      }
+      if (selected !== undefined) {
+        return selected ? colors.inverseSurface : colors.outlineVariant;
+      }
+      return colors.outlineVariant;
+    }
+    // No outline for other variants
+    default:
+      return undefined;
+  }
+};
+
 export const getSizeBorderWidth = (size: ButtonSize) => {
   switch (size) {
     case 'xsmall':
@@ -125,78 +197,6 @@ export const getPressedShapeSizeBorderRadius = (
       return shapes.large;
     case 'xlarge':
       return shapes.large;
-  }
-};
-
-export const getVariantTextColor = (
-  variant: ButtonVariant,
-  colors: MaterialDesign3Colors,
-  disabled: boolean,
-  selected?: boolean
-) => {
-  switch (variant) {
-    case 'elevated': {
-      if (disabled) {
-        return new Color(colors.onSurface).alpha(0.38);
-      }
-      if (selected !== undefined) {
-        return selected ? colors.onPrimary : colors.primary;
-      }
-      return colors.primary;
-    }
-    case 'filled': {
-      if (disabled) {
-        return new Color(colors.onSurface).alpha(0.38);
-      }
-      if (selected !== undefined) {
-        return selected ? colors.onPrimary : colors.onSurfaceVariant;
-      }
-      return colors.onPrimary;
-    }
-    case 'tonal': {
-      if (disabled) {
-        return new Color(colors.onSurface).alpha(0.38);
-      }
-      if (selected !== undefined) {
-        return selected ? colors.onSecondary : colors.onSecondaryContainer;
-      }
-      return colors.onSecondaryContainer;
-    }
-    case 'outlined': {
-      if (disabled) {
-        return new Color(colors.onSurface).alpha(0.38);
-      }
-      if (selected !== undefined) {
-        return selected ? colors.inverseOnSurface : colors.onSurfaceVariant;
-      }
-      return colors.onSurfaceVariant;
-    }
-    case 'text':
-      return disabled ? new Color(colors.onSurface).alpha(0.38) : colors.primary;
-    default:
-      return disabled ? new Color(colors.onSurface).alpha(0.38) : colors.onSurface;
-  }
-};
-
-export const getVariantBorderColor = (
-  variant: ButtonVariant,
-  colors: MaterialDesign3Colors,
-  disabled: boolean,
-  selected?: boolean
-) => {
-  switch (variant) {
-    case 'outlined': {
-      if (disabled) {
-        return selected ? 'transparent' : colors.outlineVariant;
-      }
-      if (selected !== undefined) {
-        return selected ? colors.inverseSurface : colors.outlineVariant;
-      }
-      return colors.outlineVariant;
-    }
-    // No outline for other variants
-    default:
-      return undefined;
   }
 };
 
