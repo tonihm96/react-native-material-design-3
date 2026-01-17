@@ -1,3 +1,4 @@
+import createSpringConfigFromSpec from '@/helpers/create-spring-config-from-spec';
 import { MaterialDesign3Motion } from '@/types/motion';
 
 const motion: MaterialDesign3Motion = {
@@ -31,66 +32,30 @@ const motion: MaterialDesign3Motion = {
   springs: {
     standard: {
       fast: {
-        spatial: {
-          damping: 0.9,
-          stiffness: 1400,
-        },
-        effects: {
-          damping: 1,
-          stiffness: 3800,
-        },
+        spatial: createSpringConfigFromSpec({ damping: 0.9, stiffness: 1400 }),
+        effects: createSpringConfigFromSpec({ damping: 1, stiffness: 3800 }),
       },
       default: {
-        spatial: {
-          damping: 0.9,
-          stiffness: 700,
-        },
-        effects: {
-          damping: 1,
-          stiffness: 1600,
-        },
+        spatial: createSpringConfigFromSpec({ damping: 0.9, stiffness: 700 }),
+        effects: createSpringConfigFromSpec({ damping: 1, stiffness: 1600 }),
       },
       slow: {
-        spatial: {
-          damping: 0.9,
-          stiffness: 300,
-        },
-        effects: {
-          damping: 1,
-          stiffness: 800,
-        },
+        spatial: createSpringConfigFromSpec({ damping: 0.9, stiffness: 300 }),
+        effects: createSpringConfigFromSpec({ damping: 1, stiffness: 800 }),
       },
     },
     expressive: {
       fast: {
-        spatial: {
-          damping: 0.6,
-          stiffness: 800,
-        },
-        effects: {
-          damping: 1,
-          stiffness: 3800,
-        },
+        spatial: createSpringConfigFromSpec({ damping: 0.6, stiffness: 800 }),
+        effects: createSpringConfigFromSpec({ damping: 1, stiffness: 3800 }),
       },
       default: {
-        spatial: {
-          damping: 0.8,
-          stiffness: 380,
-        },
-        effects: {
-          damping: 1,
-          stiffness: 1600,
-        },
+        spatial: createSpringConfigFromSpec({ damping: 0.8, stiffness: 380 }),
+        effects: createSpringConfigFromSpec({ damping: 1, stiffness: 1600 }),
       },
       slow: {
-        spatial: {
-          damping: 0.8,
-          stiffness: 200,
-        },
-        effects: {
-          damping: 1,
-          stiffness: 800,
-        },
+        spatial: createSpringConfigFromSpec({ damping: 0.8, stiffness: 200 }),
+        effects: createSpringConfigFromSpec({ damping: 1, stiffness: 800 }),
       },
     },
   },

@@ -1,11 +1,13 @@
+import { WithSpringConfig } from 'react-native-reanimated';
+
 export interface MaterialDesign3MotionSpring {
   damping: number;
   stiffness: number;
 }
 
 export interface MaterialDesign3MotionSpringMovements {
-  spatial: MaterialDesign3MotionSpring;
-  effects: MaterialDesign3MotionSpring;
+  spatial: WithSpringConfig;
+  effects: WithSpringConfig;
 }
 
 export interface MaterialDesign3MotionSpringSpeeds {
