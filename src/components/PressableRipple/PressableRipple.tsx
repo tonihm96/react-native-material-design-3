@@ -4,8 +4,9 @@ import Animated, { AnimatedProps, AnimatedRef } from 'react-native-reanimated';
 import { useTheme, useThemeSettings } from '@/contexts/theme';
 import useStateLayers from '@/hooks/useStateLayers';
 
-export interface PressableRippleProps
-  extends AnimatedProps<Omit<PressableProps, 'android_ripple'>> {
+export interface PressableRippleProps extends AnimatedProps<
+  Omit<PressableProps, 'android_ripple'>
+> {
   ref?: AnimatedRef<View>;
   rippleColor?: string;
   rippleRadius?: number;
