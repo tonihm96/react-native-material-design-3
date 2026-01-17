@@ -71,10 +71,17 @@ export const useTheme = (
   return mergedTheme;
 };
 
-export const useThemeSettings = (): ThemeSettings => {
+export const useThemeSettings = (overrides?: RecursivePartial<ThemeSettings>): ThemeSettings => {
   const context = use(ThemeContext);
 
   const settings = context?.settings ?? DEFAULT_SETTINGS;
 
-  return settings;
+  const mergedSettings: ThemeSettings = useMemo(() => {
+    if (overrides) {
+      return { ...settings, ...overrides };
+    }
+    return settings;
+  }, [settings, overrides]);
+
+  return mergedSettings;
 };
