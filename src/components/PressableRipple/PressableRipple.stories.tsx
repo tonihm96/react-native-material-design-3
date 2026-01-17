@@ -1,8 +1,9 @@
-import { StyleSheet, View } from 'react-native';
 import { type Meta, type StoryObj } from '@storybook/react-native';
+import { StyleSheet, View } from 'react-native';
 import { fn } from 'storybook/test';
 
 import Text from '../Text';
+
 import PressableRipple from './PressableRipple';
 
 type Story = StoryObj<typeof meta>;
