@@ -1,13 +1,12 @@
+import MaterialCommunityIcon from '@expo/vector-icons/MaterialCommunityIcons';
+import merge from 'deepmerge';
 import { ReactNode, createContext, use, useMemo } from 'react';
 import { Insets } from 'react-native';
-import merge from 'deepmerge';
 
 import { IconProps } from '@/components/Icon';
 import { materialDesign3DefaultLightTheme } from '@/theme/default';
 import { MaterialDesign3Theme } from '@/types/theme';
 import { RecursivePartial } from '@/types/utils';
-
-import MaterialCommunityIcon from '@expo/vector-icons/MaterialCommunityIcons';
 
 interface ThemeSettings {
   hitSlop?: number | Insets;
