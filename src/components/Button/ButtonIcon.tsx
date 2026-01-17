@@ -16,7 +16,7 @@ const ButtonIcon = ({ ...props }: ButtonIconProps) => {
   const buttonVariant = buttonContext?.variant ?? 'text';
   const buttonSize = buttonContext?.size ?? 'small';
   const buttonDisabled = buttonContext?.disabled ?? false;
-  const buttonSelected = buttonContext?.selected ?? false;
+  const buttonSelected = buttonContext?.selected;
 
   const color = getVariantTextColor(buttonVariant, theme.colors, buttonDisabled, buttonSelected);
   const size = getButtonIconSize(buttonSize);
