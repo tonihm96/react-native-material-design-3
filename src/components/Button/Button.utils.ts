@@ -1,5 +1,6 @@
 import { MaterialDesign3Colors } from '@/types/colors';
 import { MaterialDesign3Shapes } from '@/types/shapes';
+import { MaterialDesign3TypeScale } from '@/types/typeScale';
 
 import { ButtonVariant, ButtonSize, ButtonShape } from './ButtonContext';
 
@@ -95,5 +96,56 @@ export const getPressedShapeSizeBorderRadius = (
       return shapes.large;
     case 'xlarge':
       return shapes.large;
+  }
+};
+
+export const getVariantTextColor = (variant: ButtonVariant, colors: MaterialDesign3Colors) => {
+  switch (variant) {
+    case 'elevated':
+      return colors.primary;
+    case 'filled':
+      return colors.onPrimary;
+    case 'tonal':
+      return colors.onSecondaryContainer;
+    case 'outlined':
+      return colors.onSurfaceVariant;
+    case 'text':
+      return colors.primary;
+    default:
+      return colors.onSurface;
+  }
+};
+
+export const getFontSizeStyle = (size: ButtonSize, fonts: MaterialDesign3TypeScale) => {
+  switch (size) {
+    case 'xsmall':
+      return fonts.labelLarge;
+    case 'small':
+      return fonts.labelLarge;
+    case 'medium':
+      return fonts.titleMedium;
+    case 'large':
+      return fonts.headlineSmall;
+    case 'xlarge':
+      return fonts.headlineLarge;
+    default:
+      return fonts.labelLarge;
+  }
+};
+
+export const getButtonIconSize = (size: ButtonSize) => {
+  switch (size) {
+    case 'xsmall':
+      return 16;
+    case 'small':
+      return 16;
+    case 'medium':
+      return 16;
+    case 'large':
+      return 16;
+    case 'xlarge':
+      return 16;
+    default:
+      return 16;
   }
 };
