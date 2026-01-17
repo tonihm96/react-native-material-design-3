@@ -9,7 +9,7 @@ export type ButtonShape = 'round' | 'square';
 export interface ButtonContextProps {
   variant: ButtonVariant;
   size: ButtonSize;
-  selected: boolean;
+  selected?: boolean;
   disabled: boolean;
 }
 

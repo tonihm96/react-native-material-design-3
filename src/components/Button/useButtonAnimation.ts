@@ -11,7 +11,7 @@ import {
 import { useTheme } from '@/contexts/theme';
 
 interface ButtonAnimationProps {
-  selected: boolean;
+  selected?: boolean;
   defaultBorderRadius: number;
   selectedBorderRadius: number;
   pressedBorderRadius: number;

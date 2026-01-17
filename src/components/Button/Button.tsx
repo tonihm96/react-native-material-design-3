@@ -31,7 +31,7 @@ const Button = ({
   children,
   variant = 'text',
   size = 'small',
-  selected = false,
+  selected,
   shape = 'round',
   disabled = false,
   style,
