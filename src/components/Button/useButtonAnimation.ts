@@ -10,7 +10,7 @@ import {
 
 import { useTheme } from '@/contexts/theme';
 
-interface UseButtonAnimationProps {
+interface ButtonAnimationProps {
   selected: boolean;
   defaultBorderRadius: number;
   selectedBorderRadius: number;
@@ -28,7 +28,7 @@ const useButtonAnimation = ({
   disabled,
   onPressIn,
   onPressOut,
-}: UseButtonAnimationProps) => {
+}: ButtonAnimationProps) => {
   const theme = useTheme();
 
   // Prevent copying the entire theme object into the worklet
