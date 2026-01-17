@@ -37,9 +37,7 @@ const useButtonAnimation = ({
   // We use a shared value to track the pressed state to ensure
   // it is faster than any round-trip through the React state system
   const pressed = useSharedValue(false);
-  const animatedBorderRadius = useSharedValue(
-    selected ? selectedBorderRadius : defaultBorderRadius
-  );
+  const animatedBorderRadius = useSharedValue(defaultBorderRadius);
 
   const handlePressIn = useCallback(
     (e: GestureResponderEvent) => {
