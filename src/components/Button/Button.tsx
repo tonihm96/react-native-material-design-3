@@ -68,11 +68,6 @@ const Button = ({
   return (
     <ButtonContext value={{ variant, size, selected, disabled, shape }}>
       <PressableRipple
-        // Here we force a re-render when backgroundColor changes
-        // This should be fixed sometime soon by the React Native team
-        // There is an open issue about it:
-        // https://github.com/facebook/react-native/issues/54298
-        key={backgroundColor}
         style={[
           styles.container,
           buttonSizeStyle,
