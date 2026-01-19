@@ -13,6 +13,12 @@ export interface ButtonContextProps {
   disabled: boolean;
 }
 
-const ButtonContext = createContext<ButtonContextProps | undefined>(undefined);
+const defaultButtonContext: ButtonContextProps = {
+  variant: 'text',
+  size: 'small',
+  disabled: false,
+};
+
+const ButtonContext = createContext<ButtonContextProps>(defaultButtonContext);
 
 export default ButtonContext;
