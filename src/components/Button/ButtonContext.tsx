@@ -9,6 +9,7 @@ export type ButtonShape = 'round' | 'square';
 export interface ButtonContextProps {
   variant: ButtonVariant;
   size: ButtonSize;
+  shape: ButtonShape;
   selected?: boolean;
   disabled: boolean;
 }
@@ -16,6 +17,7 @@ export interface ButtonContextProps {
 const defaultButtonContext: ButtonContextProps = {
   variant: 'text',
   size: 'small',
+  shape: 'round',
   disabled: false,
 };
 
