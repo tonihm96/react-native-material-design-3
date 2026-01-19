@@ -86,8 +86,9 @@ const useButtonAnimation = ({
         targetRadius = current.selectedBorderRadius;
       }
 
-      cancelAnimation(animatedBorderRadius);
       if (animatedBorderRadius.value !== targetRadius) {
+        // Only cancel the animation if it's running when assigning a new one
+        cancelAnimation(animatedBorderRadius);
         animatedBorderRadius.value = withSpring(targetRadius, springConfig);
       }
     },
