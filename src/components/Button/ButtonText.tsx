@@ -11,12 +11,12 @@ export type ButtonTextProps = TextProps;
 
 const ButtonText = ({ children, style, ...props }: ButtonTextProps) => {
   const theme = useTheme();
-  const buttonContext = use(ButtonContext);
-
-  const buttonVariant = buttonContext?.variant ?? 'text';
-  const buttonSize = buttonContext?.size ?? 'small';
-  const buttonDisabled = buttonContext?.disabled ?? false;
-  const buttonSelected = buttonContext?.selected;
+  const {
+    disabled: buttonDisabled,
+    size: buttonSize,
+    variant: buttonVariant,
+    selected: buttonSelected,
+  } = use(ButtonContext);
 
   const textColor = getVariantTextColor(
     buttonVariant,

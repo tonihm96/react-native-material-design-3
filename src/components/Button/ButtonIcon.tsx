@@ -11,17 +11,17 @@ export type ButtonIconProps = IconProps;
 
 const ButtonIcon = ({ ...props }: ButtonIconProps) => {
   const theme = useTheme();
-  const buttonContext = use(ButtonContext);
-
-  const buttonVariant = buttonContext?.variant ?? 'text';
-  const buttonSize = buttonContext?.size ?? 'small';
-  const buttonDisabled = buttonContext?.disabled ?? false;
-  const buttonSelected = buttonContext?.selected;
+  const {
+    disabled: buttonDisabled,
+    size: buttonSize,
+    variant: buttonVariant,
+    selected: buttonSelected,
+  } = use(ButtonContext);
 
   const color = getVariantTextColor(buttonVariant, theme.colors, buttonDisabled, buttonSelected);
-  const size = getButtonIconSize(buttonSize);
+  const iconSize = getButtonIconSize(buttonSize);
 
-  return <Icon color={color} size={size} {...props} />;
+  return <Icon color={color} size={iconSize} {...props} />;
 };
 
 export default ButtonIcon;
