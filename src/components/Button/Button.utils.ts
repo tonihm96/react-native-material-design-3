@@ -1,9 +1,8 @@
 import { MaterialDesign3Colors } from '@/types/colors';
-import { MaterialDesign3Shapes } from '@/types/shapes';
 import { MaterialDesign3TypeScale } from '@/types/typeScale';
 
-import { ButtonShape, ButtonSize, ButtonVariant } from './ButtonContext';
 import Color from '@/utils/color';
+import { ButtonSize, ButtonVariant } from './ButtonContext';
 
 export const getVariantBackgroundColor = (
   variant: ButtonVariant,
@@ -139,72 +138,6 @@ export const getSizeBorderWidth = (size: ButtonSize) => {
       return 2;
     case 'xlarge':
       return 3;
-    default:
-      throw new Error(`Unsupported button size: ${size}`);
-  }
-};
-
-export const getShapeSizeBorderRadius = (
-  shape: ButtonShape,
-  size: ButtonSize,
-  shapes: MaterialDesign3Shapes,
-  height: number
-) => {
-  if (shape === 'round') {
-    return height / 2;
-  }
-
-  switch (size) {
-    case 'xsmall':
-      return shapes.medium;
-    case 'small':
-      return shapes.medium;
-    case 'medium':
-      return shapes.large;
-    case 'large':
-      return shapes.extraLarge;
-    case 'xlarge':
-      return shapes.extraLarge;
-    default:
-      throw new Error(`Unsupported button size: ${size}`);
-  }
-};
-
-export const getSelectedShapeSizeBorderRadius = (
-  size: ButtonSize,
-  shapes: MaterialDesign3Shapes
-) => {
-  switch (size) {
-    case 'xsmall':
-      return shapes.medium;
-    case 'small':
-      return shapes.medium;
-    case 'medium':
-      return shapes.large;
-    case 'large':
-      return shapes.extraLarge;
-    case 'xlarge':
-      return shapes.extraLarge;
-    default:
-      throw new Error(`Unsupported button size: ${size}`);
-  }
-};
-
-export const getPressedShapeSizeBorderRadius = (
-  size: ButtonSize,
-  shapes: MaterialDesign3Shapes
-) => {
-  switch (size) {
-    case 'xsmall':
-      return shapes.small;
-    case 'small':
-      return shapes.small;
-    case 'medium':
-      return shapes.medium;
-    case 'large':
-      return shapes.large;
-    case 'xlarge':
-      return shapes.large;
     default:
       throw new Error(`Unsupported button size: ${size}`);
   }
