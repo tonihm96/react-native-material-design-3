@@ -34,8 +34,8 @@ const useButtonAnimation = ({
   // Prevent copying the entire theme object into the worklet
   const springConfig = theme.motion.springs.standard.fast.spatial;
 
-  // We use a shared value to track the pressed state to ensure
-  // it is faster than any round-trip through the React state system
+  // Use a shared value to track the pressed state to ensure
+  // it is faster than any extra round-trip through the JS thread
   const pressed = useSharedValue(false);
   const animatedBorderRadius = useSharedValue(defaultBorderRadius);
 
