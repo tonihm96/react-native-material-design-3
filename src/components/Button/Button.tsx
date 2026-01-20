@@ -4,9 +4,6 @@ import PressableRipple, { PressableRippleProps } from '../PressableRipple';
 
 import styles from './Button.styles';
 import {
-  getPressedShapeSizeBorderRadius,
-  getSelectedShapeSizeBorderRadius,
-  getShapeSizeBorderRadius,
   getSizeBorderWidth,
   getVariantBackgroundColor,
   getVariantBorderColor,
@@ -19,6 +16,7 @@ import ButtonContext, {
 import ButtonIcon from './ButtonIcon';
 import ButtonText from './ButtonText';
 import useButtonAnimation from './useButtonAnimation';
+import useButtonStateShapes from './useButtonStateShapes';
 
 export interface ButtonProps extends PressableRippleProps {
   shape?: ButtonShape;
@@ -41,19 +39,17 @@ const Button = ({
 }: ButtonProps) => {
   const theme = useTheme();
 
-  const buttonSizeStyle = styles[size];
+  const buttonStyleBySize = styles[size];
+  const buttonHeight = buttonStyleBySize.height;
 
   const backgroundColor = getVariantBackgroundColor(variant, theme.colors, disabled, selected);
   const borderWidth = getSizeBorderWidth(size);
 
-  const defaultBorderRadius = getShapeSizeBorderRadius(
+  const { defaultBorderRadius, pressedBorderRadius, selectedBorderRadius } = useButtonStateShapes({
     shape,
     size,
-    theme.shapes,
-    buttonSizeStyle.height
-  );
-  const selectedBorderRadius = getSelectedShapeSizeBorderRadius(size, theme.shapes);
-  const pressedBorderRadius = getPressedShapeSizeBorderRadius(size, theme.shapes);
+    buttonHeight,
+  });
 
   const { animatedStyle, handlePressIn, handlePressOut } = useButtonAnimation({
     defaultBorderRadius,
@@ -70,7 +66,7 @@ const Button = ({
       <PressableRipple
         style={[
           styles.container,
-          buttonSizeStyle,
+          buttonStyleBySize,
           { backgroundColor },
           variant === 'outlined' && {
             borderWidth,
